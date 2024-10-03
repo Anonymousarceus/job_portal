@@ -39,11 +39,9 @@ const Navbar = () => {
   return (
     <div className="bg-white border-b border-gray-200 shadow-md">
       <div className="flex items-center justify-between mx-auto max-w-6xl h-16 px-4 sm:px-6 md:px-8">
-        <div>
-          <h1 className="text-xl sm:text-2xl font-bold">
-            Job<span className="text-[#F83002]">Portal</span>
-          </h1>
-        </div>
+        <h1 className="text-xl sm:text-2xl font-bold">
+          Job<span className="text-[#F83002]">Portal</span>
+        </h1>
 
         {/* Hamburger Menu for Mobile */}
         <div className="sm:hidden">
@@ -127,7 +125,6 @@ const Navbar = () => {
                       </Button>
                     </div>
                   )}
-
                   <div className="flex w-fit items-center gap-2 cursor-pointer">
                     <LogOut />
                     <Button
@@ -170,6 +167,22 @@ const Navbar = () => {
                   <Link to="/browse">Browse</Link>
                 </li>
               </>
+            )}
+
+            {/* Mobile Auth Links */}
+            {!user && (
+              <div className="flex flex-col gap-4">
+                <Link to="/login">
+                  <Button variant="outline" className="text-sm">
+                    Login
+                  </Button>
+                </Link>
+                <Link to="/signup">
+                  <Button className="bg-[#6A38C2] hover:bg-[#5b30a6] text-sm">
+                    Signup
+                  </Button>
+                </Link>
+              </div>
             )}
           </ul>
         </div>
