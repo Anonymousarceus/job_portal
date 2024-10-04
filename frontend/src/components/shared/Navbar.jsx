@@ -18,9 +18,12 @@ const Navbar = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.get(`https://job-portal-oq2d.onrender.com/api/v1/user/logout`, {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        `https://job-portal-oq2d.onrender.com/api/v1/user/logout`,
+        {
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         dispatch(setUser(null));
         navigate("/");
@@ -166,6 +169,12 @@ const Navbar = () => {
                 <li className="text-sm">
                   <Link to="/browse">Browse</Link>
                 </li>
+                {/* View Profile for small screens */}
+                {user && user.role === "student" && (
+                  <li className="text-sm">
+                    <Link to="/profile">View Profile</Link>
+                  </li>
+                )}
               </>
             )}
 

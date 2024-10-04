@@ -15,7 +15,7 @@ const Applicants = () => {
     useEffect(() => {
         const fetchAllApplicants = async () => {
             try {
-                const res = await axios.get(`https://job-portal-oq2d.onrender.com/api/v1/application/applicants`, { withCredentials: true });
+                const res = await axios.get(`https://job-portal-oq2d.onrender.com/api/v1/application/${params.id}/applicants`, { withCredentials: true });
                 dispatch(setAllApplicants(res.data.job));
             } catch (error) {
                 console.log(error);
