@@ -170,7 +170,7 @@ const Navbar = () => {
             )}
 
             {/* Mobile Auth Links */}
-            {!user && (
+            {!user ? (
               <div className="flex flex-col gap-4">
                 <Link to="/login">
                   <Button variant="outline" className="text-sm">
@@ -183,6 +183,32 @@ const Navbar = () => {
                   </Button>
                 </Link>
               </div>
+            ) : (
+              <>
+                <div className="flex gap-2 items-center">
+                  <Avatar>
+                    <AvatarImage
+                      src={user?.profile?.profilePhoto}
+                      alt="Profile"
+                    />
+                  </Avatar>
+                  <div>
+                    <h1 className="font-medium text-sm">{user?.fullname}</h1>
+                    <p className="text-xs text-gray-500">
+                      {user?.profile?.bio}
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <Button
+                    onClick={logoutHandler}
+                    variant="outline"
+                    className="text-sm"
+                  >
+                    Logout
+                  </Button>
+                </div>
+              </>
             )}
           </ul>
         </div>
